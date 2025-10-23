@@ -55,5 +55,17 @@ public class Card {
     public void flip() {
         isFaceUp = !isFaceUp;
     }
+
+/*
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Card{");
+        sb.append("isFaceUp=").append(isFaceUp);
+        sb.append(", value='").append(value).append('\'');
+        sb.append(", suit='").append(suit).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
+ */
 }
 
