@@ -6,18 +6,7 @@ import java.util.ArrayList;
 public class MainApplication {
     public static void main(String[] args) {
         Deck deck = new Deck();
-        Hand hand = new Hand();
-        // shuffles the deck
-        deck.shuffle();
-        // deal 5 cards
-        for (int i = 0; i < 5; i++) {
-            // get a card from the deck
-            Card card = deck.deal();
-            // deal that card to the hand
-            hand.dealCard(card);
-            // shuffles the deck for a new user
-            deck.shuffle();
-        }
+        deck.shuffle(); // initial deck shuffle
 
         ArrayList<String> playerNames = new ArrayList<>();
         playerNames.add("Lucas");
@@ -28,8 +17,16 @@ public class MainApplication {
         playerNames.add("Marceline");
         playerNames.add("Ricardio");
         playerNames.add("Ice King");
+
+        // deal a hand for each player
         for (String playerName : playerNames) {
-            int handValue = hand.getValue();
+            Hand hand = new Hand(); // creates a new hand for each player
+            // deal 2 cards
+            for (int i = 0; i < 2; i++) {
+                Card card = deck.deal(); // get a card from the deck
+                hand.dealCard(card); // deal that card to the hand
+            }
+            int handValue = hand.getValue(); // get the value for the player's hand
 
             System.out.println(playerName + "'s hand is worth " + handValue);
         }
